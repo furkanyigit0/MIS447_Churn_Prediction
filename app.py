@@ -171,7 +171,7 @@ if 'model' in locals():
 
     st.subheader('2. Encoded Input for Model:')
     st.write(final_features_df)
-
+    final_features_df = final_features_df[features_list]
     # 3. PREDICTION
     prediction = model.predict(final_features_df)
     prediction_proba = model.predict_proba(final_features_df)
