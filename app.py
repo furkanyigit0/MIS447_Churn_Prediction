@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
-
+import json
 # Set the page configuration
 st.set_page_config(page_title="Customer Churn Early Warning System", layout="wide")
 
@@ -10,8 +10,11 @@ st.set_page_config(page_title="Customer Churn Early Warning System", layout="wid
 # Load the saved Random Forest model
 try:
     model = joblib.load('random_forest_churn_model.pkl')
+    # YENİ EKLE: Modelin beklediği özellik listesini JSON dosyasından yükle
+    with open('model_features.json', 'r') as f:
+        features_list = json.load(f)
 except FileNotFoundError:
-    st.error("Error: Model file 'random_forest_churn_model.pkl' not found. Ensure it was saved in Block 5.")
+    st.error("Error: Required files (model or features list) not found in the deployment environment.")
     st.stop()
 
 # Load feature names (These were saved implicitly from X_train columns)
