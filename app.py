@@ -6,6 +6,8 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Git deneme 
+
 # --- INITIAL SETUP ---
 st.set_page_config(page_title="Customer Churn Prediction Dashboard", layout="wide")
 st.title("📞 Customer Churn Early Warning System")
